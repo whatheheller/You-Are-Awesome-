@@ -13,13 +13,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     
     var imgNum = 0
-    
+    var msgNum = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         msgLabel.text = ""
     }
 
     @IBAction func showMsg(_ sender: UIButton) {
+        
+        let msgs = ["You are Awesome!", "You are Great!", "You are Fantastic!", "Fabulous? That's You!"]
+        msgLabel.text = msgs[msgNum]
+        msgNum += 1
+        if msgNum == msgs.count{
+            msgNum = 0
+        }
         
         let imgName = "image\(imgNum)"
         imgView.image = UIImage(named: imgName)
