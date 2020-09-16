@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var msgLabel: UILabel!
     @IBOutlet weak var imgView: UIImageView!
     
+    var imgNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,20 +20,28 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showMsg(_ sender: UIButton) {
-        let aweMsg = "You are Awesome!"
-        let greatMsg = "You are Great!"
-        let bombMsg = "You are Da Bomb!"
         
-        if msgLabel.text == aweMsg{
-            msgLabel.text = greatMsg
-            imgView.image = UIImage(named: "image1")
-        }else if msgLabel.text == greatMsg{
-            msgLabel.text = bombMsg
-            imgView.image = UIImage(named: "image2")
-        }else {
-            msgLabel.text = aweMsg
-            imgView.image = UIImage(named: "image0")
+        let imgName = "image\(imgNum)"
+        imgView.image = UIImage(named: imgName)
+        imgNum += 1
+        if imgNum == 10{
+            imgNum = 0
         }
+        
+//        let aweMsg = "You are Awesome!"
+//        let greatMsg = "You are Great!"
+//        let bombMsg = "You are Da Bomb!"
+//
+//        if msgLabel.text == aweMsg{
+//            msgLabel.text = greatMsg
+//            imgView.image = UIImage(named: "image1")
+//        }else if msgLabel.text == greatMsg{
+//            msgLabel.text = bombMsg
+//            imgView.image = UIImage(named: "image2")
+//        }else {
+//            msgLabel.text = aweMsg
+//            imgView.image = UIImage(named: "image0")
+//        }
     }
     
 }
